@@ -2,6 +2,8 @@
 
 # this is a simple config for herbstluftwm
 
+rpath=~/.config/herbstluftwm
+
 hc() {
     herbstclient "$@"
 }
@@ -164,15 +166,13 @@ herbstclient set tree_style '╾│ ├└╼─┐'
 #padding for bottom bar
 hc pad 0 "" "" 30
 
-# bar management
-# killing whatever survives config reload
-PIDS=$(pidof -x dzen2 panel.sh panel2.sh)
+PIDS=$(pidof -x dzen2 panel.sh panel2.sh panel3.sh)
 if ! [ -z "$PIDS" ] ; then
     echo $PIDS | xargs kill
 fi
 #
 # find default panel
-panel=~/.config/herbstluftwm/panel.sh
+panel=$rpath/panel.sh
 [ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
 for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
     # start it on each monitor
@@ -180,7 +180,7 @@ for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
 done
 #
 # find top panel
-panel2=~/.config/herbstluftwm/panel2.sh
+panel2=$rpath/panel2.sh
 [ -x "$panel2" ] || panel2=/etc/xdg/herbstluftwm/panel2.sh
 for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
     # start it on each monitor
@@ -188,5 +188,5 @@ for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
 done
 
 #set bg
-#eval "$(cat ~/.fehbg)"
-eval emit_hooks.sh
+eval $(cat ~/.fehbg)
+eval $rpath/emit_hooks.sh

@@ -2,7 +2,7 @@
 
 hc="herbstclient"
 blur=3
-wallpaper='<wallpaper.jpg>'
+wallpaper=$(cut -d ' ' -f 4 < ~/.fehbg)
 
 root() {
   tag=$(($($hc attr monitors.$@.tag) - 1))
