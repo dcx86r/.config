@@ -1,0 +1,1 @@
+/home/dc/.config/herbstluftwm/hide_bars.sh

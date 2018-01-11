@@ -1,0 +1,1 @@
+/home/dc/.config/herbstluftwm/bg_fx.sh

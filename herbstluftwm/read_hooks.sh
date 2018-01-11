@@ -1,0 +1,1 @@
+/home/dc/.config/herbstluftwm/read_hooks.sh
