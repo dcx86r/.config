@@ -7,12 +7,6 @@ function! GitBranch()
 	return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
 endfunction
 
-"function! StatuslineGit()
-"	let l:branchname = GitBranch()
-"	return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
-"	return l:branchname
-"endfunction
-
 set statusline=
 if (strlen(GitBranch()) > 0)
 	set statusline+=\ %{GitBranch()}\ /
